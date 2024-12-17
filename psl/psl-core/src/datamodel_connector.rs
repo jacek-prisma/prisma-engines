@@ -304,10 +304,7 @@ pub enum Flavour {
 
 impl Flavour {
     pub fn is_sql(&self) -> bool {
-        matches!(
-            self,
-            Flavour::Cockroach | Flavour::Sqlserver | Flavour::Mysql | Flavour::Postgres | Flavour::Sqlite
-        )
+        !self.is_mongo()
     }
 
     pub fn is_mongo(&self) -> bool {
